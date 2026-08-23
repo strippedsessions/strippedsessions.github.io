@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stripped Sessions</title>
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -13,7 +13,7 @@
   --cream: #e8e2d8;
   --cream-dim: rgba(232,226,216,0.42);
   --cream-faint: rgba(232,226,216,0.16);
-  --font: 'American Typewriter', 'Special Elite', 'Courier New', Courier, monospace;
+  --font: 'American Typewriter', 'Special Elite', monospace;
 }
 
 html, body { height: 100%; }
@@ -478,15 +478,15 @@ body::after {
   <button type="button" class="artist-cta" id="toArtist">Are you an artist? Reach out &rarr;</button>
 
   <div class="form-wrap">
-    <label class="form-label">Be the first to hear about it</label>
+    <label class="form-label">Limited seats. RSVP to hold your spot.</label>
     <form id="wl" action="https://formspree.io/f/xqejvaed" method="POST">
       <div class="field-row">
         <input type="email" name="email" placeholder="your@email.com" required autocomplete="email"/>
-        <button type="submit">Join</button>
+        <button type="submit">RSVP</button>
       </div>
-      <p class="note">No spam. Just a message when Session 01 is announced.</p>
+      <p class="note">No spam. Just a confirmation on September 2.</p>
     </form>
-    <div class="success" id="ok">You're on the list. We'll be in touch.</div>
+    <div class="success" id="ok">You're in. We'll send the details before the night.</div>
   </div>
 
 </main>
@@ -617,7 +617,7 @@ form.addEventListener('submit', async function(e) {
       form.style.display = 'none';
       ok.style.display = 'block';
     } else {
-      btn.textContent = 'Join';
+      btn.textContent = 'RSVP';
       btn.disabled = false;
     }
   } catch(err) {
