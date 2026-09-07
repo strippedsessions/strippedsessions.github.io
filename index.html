@@ -473,20 +473,19 @@ body::after {
     The space between two things — the in-between where everything happens.
   </p>
 
-  <p class="label">Session 01 &nbsp;—&nbsp; Bucharest &nbsp;—&nbsp; September 5</p>
+  <p class="label">Session 02 &nbsp;—&nbsp; Bucharest &nbsp;—&nbsp; TBA</p>
 
   <button type="button" class="artist-cta" id="toArtist">Are you an artist? Reach out &rarr;</button>
 
   <div class="form-wrap">
-    <label class="form-label">Limited seats. RSVP to hold your spot.</label>
     <form id="wl" action="https://formspree.io/f/xqejvaed" method="POST">
       <div class="field-row">
         <input type="email" name="email" placeholder="your@email.com" required autocomplete="email"/>
-        <button type="submit">RSVP</button>
+        <button type="submit">Keep me posted</button>
       </div>
-      <p class="note">No spam. Just a confirmation on September 2.</p>
+      <p class="note">No spam. You'll hear from us when Session 02 has a date.</p>
     </form>
-    <div class="success" id="ok">You're in. We'll send the details before the night.</div>
+    <div class="success" id="ok">You're on the list. We'll be in touch when Session 02 has a date.</div>
   </div>
 
 </main>
@@ -617,7 +616,7 @@ form.addEventListener('submit', async function(e) {
       form.style.display = 'none';
       ok.style.display = 'block';
     } else {
-      btn.textContent = 'RSVP';
+      btn.textContent = 'Keep me posted';
       btn.disabled = false;
     }
   } catch(err) {
