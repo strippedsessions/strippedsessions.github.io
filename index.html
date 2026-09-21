@@ -440,6 +440,110 @@ body::after {
   #view-artist { padding: 56px 22px 100px; }
   .row2 { grid-template-columns: 1fr; gap: 22px; }
 }
+
+/* ---------- Session 01 ---------- */
+
+.session {
+  width: 100%;
+  max-width: 1080px;
+  margin: 150px auto 0;
+}
+
+.session-head {
+  text-align: center;
+  margin-bottom: 68px;
+}
+
+.s-num {
+  font-family: var(--font);
+  font-size: 13px;
+  letter-spacing: 0.44em;
+  text-indent: 0.44em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 20px;
+}
+
+.s-meta {
+  font-family: var(--font);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-indent: 0.24em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  line-height: 2.1;
+}
+
+.frames {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.trio {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.trio .tall { grid-row: span 2; }
+.trio figure.f { height: 100%; }
+.trio figure.f img { height: 100%; object-fit: cover; }
+
+.credit {
+  margin-top: 56px;
+  text-align: center;
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-indent: 0.24em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+
+figure.f {
+  margin: 0;
+  overflow: hidden;
+  background: rgba(232,226,216,0.04);
+}
+
+figure.f img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.15s cubic-bezier(.22,.68,0,1), transform 1.15s cubic-bezier(.22,.68,0,1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 620px) {
+  .session { margin-top: 100px; }
+  .session-head { margin-bottom: 46px; }
+  .frames { gap: 14px; }
+  .pair, .trio { grid-template-columns: 1fr; gap: 14px; }
+  .trio .tall { grid-row: auto; }
+  .trio figure.f, .trio figure.f img { height: auto; }
+  .trio figure.f img { object-fit: contain; }
+  .credit { margin-top: 40px; }
+}
 </style>
 </head>
 <body>
@@ -487,6 +591,33 @@ body::after {
     </form>
     <div class="success" id="ok">You're on the list. We'll be in touch when Session 02 has a date.</div>
   </div>
+
+  <section class="session" aria-label="Session 01">
+    <div class="session-head reveal">
+      <p class="s-num">Session 01</p>
+      <p class="s-meta">Nais Space, Bucharest &nbsp;&mdash;&nbsp; 5 September 2026<br>Shot on 35mm</p>
+    </div>
+
+    <div class="frames">
+      <div class="trio">
+        <figure class="f tall reveal"><img src="photos/s01-stage.jpg" alt="The room before doors" loading="lazy" width="1131" height="1700"></figure>
+        <figure class="f reveal"><img src="photos/s01-monitor.jpg" alt="Camera monitor during the session" loading="lazy" width="1700" height="1131"></figure>
+        <figure class="f reveal"><img src="photos/s01-hand.jpg" alt="Hand on a camera monitor" loading="lazy" width="1700" height="1131"></figure>
+      </div>
+      <figure class="f reveal"><img src="photos/s01-03.jpg" alt="Session 01 at Nais Space" loading="lazy" width="1700" height="1131"></figure>
+      <div class="pair">
+        <figure class="f reveal"><img src="photos/s01-05.jpg" alt="Session 01 at Nais Space" loading="lazy" width="1700" height="1131"></figure>
+        <figure class="f reveal"><img src="photos/s01-crew.jpg" alt="Crew filming Session 01" loading="lazy" width="1700" height="1131"></figure>
+      </div>
+      <figure class="f reveal"><img src="photos/s01-01.jpg" alt="Session 01 at Nais Space" loading="lazy" width="1700" height="1131"></figure>
+      <div class="pair">
+        <figure class="f reveal"><img src="photos/s01-02.jpg" alt="Session 01 at Nais Space" loading="lazy" width="1700" height="1131"></figure>
+        <figure class="f reveal"><img src="photos/s01-04.jpg" alt="The room during Session 01" loading="lazy" width="1700" height="1131"></figure>
+      </div>
+    </div>
+
+    <p class="credit reveal">Photographs by Sandra Nicolaescu &nbsp;&mdash;&nbsp; 35mm</p>
+  </section>
 
 </main>
 
@@ -651,6 +782,25 @@ artistForm.addEventListener('submit', async function(e) {
     artistOk.style.display = 'block';
   }
 });
+</script>
+
+<script>
+(function () {
+  var items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    for (var i = 0; i < items.length; i++) items[i].classList.add('in');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+  items.forEach(function (el) { io.observe(el); });
+})();
 </script>
 
 </body>
