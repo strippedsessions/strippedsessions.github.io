@@ -12,6 +12,8 @@
   --bg: #131110;
   --cream: #e8e2d8;
   --cream-dim: rgba(232,226,216,0.42);
+  --grain-op: 0.032;
+  --track-label: 0.34em;
   --cream-faint: rgba(232,226,216,0.16);
   --font: 'American Typewriter', 'Special Elite', monospace;
 }
@@ -24,6 +26,7 @@ body {
   font-family: var(--font);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background .4s, color .4s;
   position: relative;
 }
 
@@ -32,7 +35,7 @@ body::before {
   position: fixed;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.032;
+  opacity: var(--grain-op);
   pointer-events: none;
   z-index: 100;
 }
@@ -115,7 +118,7 @@ body::after {
 .label {
   font-family: var(--font);
   font-size: 10px;
-  letter-spacing: 0.34em;
+  letter-spacing: var(--track-label);
   text-transform: uppercase;
   color: rgba(232,226,216,0.62);
   text-align: center;
@@ -554,6 +557,43 @@ figure.f img {
   .trio figure.f img { object-fit: contain; }
   .credit { margin-top: 40px; }
 }
+body.theme-paper {
+  --bg: #f4f0e9;
+  --cream: #131110;
+  --cream-dim: rgba(19,17,16,0.5);
+  --cream-faint: rgba(19,17,16,0.16);
+}
+body.mood-loose .title, body.mood-loose .a-title { letter-spacing: 0.05em; }
+body.mood-loose { --track-label: 0.5em; }
+body.grain-clean { --grain-op: 0.008; }
+body.grain-heavy { --grain-op: 0.09; }
+
+#tweaks-toggle {
+  position: fixed; bottom: 18px; right: 18px; z-index: 999;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(232,226,216,0.1); border: 1px solid rgba(232,226,216,0.3);
+  color: var(--cream); font-family: var(--font); font-size: 14px;
+  cursor: pointer; backdrop-filter: blur(4px);
+}
+#tweaks-panel {
+  position: fixed; bottom: 68px; right: 18px; z-index: 999;
+  width: 220px; padding: 18px;
+  background: rgba(19,17,16,0.92); border: 1px solid rgba(232,226,216,0.2);
+  display: none; font-family: var(--font);
+}
+#tweaks-panel.open { display: block; }
+#tweaks-panel h4 {
+  margin: 0 0 10px; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(232,226,216,0.55); font-weight: 400;
+}
+#tweaks-panel .row { margin-bottom: 14px; }
+#tweaks-panel .opts { display: flex; gap: 6px; }
+#tweaks-panel button.opt {
+  flex: 1; padding: 7px 4px; font-size: 9px; letter-spacing: 0.06em;
+  background: transparent; border: 1px solid rgba(232,226,216,0.3);
+  color: var(--cream); font-family: var(--font); cursor: pointer;
+}
+#tweaks-panel button.opt.active { background: var(--cream); color: var(--bg); }
 </style>
 </head>
 <body>
