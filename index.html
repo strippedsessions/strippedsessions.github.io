@@ -557,43 +557,6 @@ figure.f img {
   .trio figure.f img { object-fit: contain; }
   .credit { margin-top: 40px; }
 }
-body.theme-paper {
-  --bg: #f4f0e9;
-  --cream: #131110;
-  --cream-dim: rgba(19,17,16,0.5);
-  --cream-faint: rgba(19,17,16,0.16);
-}
-body.mood-loose .title, body.mood-loose .a-title { letter-spacing: 0.05em; }
-body.mood-loose { --track-label: 0.5em; }
-body.grain-clean { --grain-op: 0.008; }
-body.grain-heavy { --grain-op: 0.09; }
-
-#tweaks-toggle {
-  position: fixed; bottom: 18px; right: 18px; z-index: 999;
-  width: 40px; height: 40px; border-radius: 50%;
-  background: rgba(232,226,216,0.1); border: 1px solid rgba(232,226,216,0.3);
-  color: var(--cream); font-family: var(--font); font-size: 14px;
-  cursor: pointer; backdrop-filter: blur(4px);
-}
-#tweaks-panel {
-  position: fixed; bottom: 68px; right: 18px; z-index: 999;
-  width: 220px; padding: 18px;
-  background: rgba(19,17,16,0.92); border: 1px solid rgba(232,226,216,0.2);
-  display: none; font-family: var(--font);
-}
-#tweaks-panel.open { display: block; }
-#tweaks-panel h4 {
-  margin: 0 0 10px; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(232,226,216,0.55); font-weight: 400;
-}
-#tweaks-panel .row { margin-bottom: 14px; }
-#tweaks-panel .opts { display: flex; gap: 6px; }
-#tweaks-panel button.opt {
-  flex: 1; padding: 7px 4px; font-size: 9px; letter-spacing: 0.06em;
-  background: transparent; border: 1px solid rgba(232,226,216,0.3);
-  color: var(--cream); font-family: var(--font); cursor: pointer;
-}
-#tweaks-panel button.opt.active { background: var(--cream); color: var(--bg); }
 </style>
 </head>
 <body>
@@ -671,7 +634,7 @@ body.grain-heavy { --grain-op: 0.09; }
 
   <p class="label" style="margin-top:64px">Session 02 &nbsp;—&nbsp; Bucharest &nbsp;—&nbsp; TBA</p>
 
-  <button type="button" class="artist-cta" id="toArtist">Are you an artist? Reach out &rarr;</button>
+  <button type="button" class="artist-cta" id="toArtist">Are you a musician? Reach out &rarr;</button>
 
   <div class="form-wrap">
     <form id="wl" action="https://formspree.io/f/xqejvaed" method="POST">
@@ -712,7 +675,7 @@ body.grain-heavy { --grain-op: 0.09; }
   <form id="artistForm" action="https://formspree.io/f/mpqvaqql" method="POST">
 
     <div class="field">
-      <label>Name / Artist name</label>
+      <label>Name / Band name</label>
       <input type="text" name="name" placeholder="Your name" required/>
     </div>
 
