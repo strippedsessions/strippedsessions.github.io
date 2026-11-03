@@ -233,7 +233,7 @@ main{padding:56px 32px 96px}
     <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
     <div class="haze"></div>
     <div class="rec"><span class="dot"></span><span>REC</span></div>
-    <div class="stamp">NOV. 1&nbsp;&nbsp;19:00</div>
+    <div class="stamp">SESSION 03&nbsp;&nbsp;TBA</div>
     <svg class="neon-icon" id="neonIcon" viewBox="0 0 200 134" fill="none" aria-hidden="true"><rect x="3" y="3" width="194" height="128" rx="8" stroke="#ffe8f2" stroke-width="5"/><circle cx="62" cy="46" r="26" stroke="#ffe8f2" stroke-width="4.5"/><circle cx="62" cy="46" r="8" fill="#ffe8f2"/><circle cx="138" cy="46" r="26" stroke="#ffe8f2" stroke-width="4.5"/><circle cx="138" cy="46" r="8" fill="#ffe8f2"/><rect x="22" y="76" width="156" height="14" stroke="#ffe8f2" stroke-width="3.5"/><circle cx="72" cy="118" r="4" fill="#ffe8f2"/><circle cx="128" cy="118" r="4" fill="#ffe8f2"/></svg>
     <h1 class="neon" id="neonName">Stripped<br>Sessions</h1>
     <p class="tagline">the song you want to hear for the first time again and again</p>
@@ -241,22 +241,21 @@ main{padding:56px 32px 96px}
   </div>
 
   <div class="next">
-    <img src="photos/s02-poster.png" alt="Session 02 poster" decoding="async">
-    <div class="info">
+        <div class="info">
       <span class="eyebrow">Next session</span>
-      <span class="big">Nov. 1</span>
-      <div class="meta"><span>Session 02, 19:00</span><span>Heavy Yard, Vasile Lascăr 38</span></div>
+      <span class="big">TBA</span>
+      <div class="meta"><span>Session 03</span><span>Date and venue to be announced</span></div>
       <span style="font-size:13px;padding-top:8px;">Lineup</span>
       <div class="redact" aria-label="Lineup not announced"><span class="rbar"></span><span style="font-size:14px;">&amp;</span><span class="rbar"></span></div>
-      <span id="rsvp" style="font-size:14px;padding-top:14px;">Limited seats. RSVP to hold your spot.</span>
+      <span id="rsvp" style="font-size:14px;padding-top:14px;">Be the first to hear about it.</span>
       <form id="wl" action="https://formspree.io/f/xqejvaed" method="POST">
         <div class="field-row">
           <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email">
-          <button type="submit">RSVP</button>
+          <button type="submit">Join</button>
         </div>
       </form>
       <span class="small">50 RON minimum at the door, for the musicians.</span>
-      <p class="msg" id="ok">You're on the list. See you November 1 at Heavy Yard, Vasile Lascăr 38. Doors at 19:00. 50 RON minimum at the door, for the musicians.</p>
+      <p class="msg" id="ok">You're on the list. We'll email you the date and venue for Session 03.</p>
       <p class="msg" id="wlErr">That didn't go through. Try again?</p>
     </div>
   </div>
@@ -292,6 +291,15 @@ main{padding:56px 32px 96px}
 <section class="page" data-page="sessions">
 <main>
   <div class="s-top">
+    <h2 class="h2">Session 02</h2>
+    <div class="r"><span>Jenifer Mohebbi &amp; Raul Marița</span><span style="opacity:.7;">Heavy Yard, November 1</span></div>
+  </div>
+  <div class="poster-row">
+    <img src="photos/s02-poster.png" alt="Session 02 poster" style="width:100%;display:block;">
+    <span style="font-size:12px;opacity:.7;">The poster</span>
+  </div>
+  <div class="sheet" id="sheet2"></div>
+  <div class="s-top" style="margin-top:56px;">
     <h2 class="h2">Session 01</h2>
     <div class="r"><span>Adame Wolf &amp; Krrysopher</span><span style="opacity:.7;">Nais Space, September 5</span></div>
   </div>
@@ -414,8 +422,8 @@ main{padding:56px 32px 96px}
 </section>
 
 <div class="bar">
-  <div class="cd"><span class="dot blink"></span><span id="countdown">Session 02</span></div>
-  <a class="key" href="#rsvp" id="rsvpKey">RSVP for Nov. 1</a>
+  <div class="cd"><span class="dot blink"></span><span id="countdown">Session 03 · TBA</span></div>
+  <a class="key" href="#rsvp" id="rsvpKey">Get the date</a>
 </div>
 
 <script>
@@ -442,26 +450,28 @@ function route(){
 }
 window.addEventListener('hashchange', route);
 
-// contact sheet
-(function(){
-  var names = ['duo-a','duo-b','duo-c','duo-d','trio-a','trio-b','trio-c','trio-d','stage','crowd','setlist-card','bts-crew-new','monitor','monitor-handheld'];
-  var picks = [1, 6, 10], sheet = document.getElementById('sheet'), html = '';
-  [names.slice(0,5), names.slice(5,10), names.slice(10)].forEach(function(roll, r){
-    html += '<div class="roll"><div class="sp"></div><div class="lab"><span>STRIPPED SESSIONS ▸ 01</span><span>ROLL ' + (r+1) + '</span></div><div class="frames">';
+// contact sheets
+function contactSheet(id, num, rolls, picks, altFor){
+  var sheet = document.getElementById(id); if (!sheet) return;
+  var html = '', k = 0;
+  rolls.forEach(function(roll, r){
+    html += '<div class="roll"><div class="sp"></div><div class="lab"><span>STRIPPED SESSIONS ▸ ' + num + '</span><span>ROLL ' + (r+1) + '</span></div><div class="frames">';
     roll.forEach(function(n){
-      var i = names.indexOf(n), alt = n.indexOf('duo') === 0 ? 'Adame Wolf' : n.indexOf('trio') === 0 ? 'Krrysopher' : 'Session 01';
-      html += '<figure><img src="photos/s01-' + n + '.jpg" alt="' + alt + '" loading="lazy" decoding="async"' + (picks.indexOf(i) > -1 ? ' class="pick"' : '') + '><figcaption>' + (i+1) + '  ▸ ' + (i+1) + 'A</figcaption></figure>';
+      k++;
+      html += '<figure><img src="photos/s' + num + '-' + n + '.jpg" alt="' + altFor(n) + '" loading="lazy" decoding="async"' + (picks.indexOf(n) > -1 ? ' class="pick"' : '') + '><figcaption>' + k + '  ▸ ' + k + 'A</figcaption></figure>';
     });
     html += '</div><div class="sp"></div></div>';
   });
   sheet.innerHTML = html + '<span class="credit">Photographs by Sandra Nicolaescu</span>';
-})();
-
-// countdown
-(function(){
-  var d = Math.ceil((new Date(2026, 10, 1) - new Date()) / 86400000);
-  document.getElementById('countdown').textContent = d > 1 ? d + ' days to Session 02' : d === 1 ? '1 day to Session 02' : d === 0 ? 'Session 02 is tonight' : 'Session 02';
-})();
+}
+contactSheet('sheet', '01',
+  [['duo-a','duo-b','duo-c','duo-d','trio-a'],['trio-b','trio-c','trio-d','stage','crowd'],['setlist-card','bts-crew-new','monitor','monitor-handheld']],
+  ['duo-b','trio-c','setlist-card'],
+  function(n){ return n.indexOf('duo') === 0 ? 'Adame Wolf' : n.indexOf('trio') === 0 ? 'Krrysopher' : 'Session 01'; });
+contactSheet('sheet2', '02',
+  [['jen-a','jen-b','jen-c','jen-d','jen-e'],['raul-a','raul-b','trio-a','trio-b','trio-c','wide'],['gear','pad','setlist']],
+  ['jen-a','raul-a','setlist'],
+  function(n){ return n.indexOf('jen') === 0 ? 'Jenifer Mohebbi' : n === 'wide' ? 'Session 02, Heavy Yard' : n === 'setlist' ? 'The setlist' : (n === 'gear' || n === 'pad') ? 'The gear before the set' : 'Raul Marița'; });
 
 // forms (Formspree)
 function wire(formId, okId, errId, label, busy){
@@ -478,7 +488,7 @@ function wire(formId, okId, errId, label, busy){
       .catch(function(){ btn.textContent = label; btn.disabled = false; err.style.display = 'block'; });
   });
 }
-wire('wl', 'ok', 'wlErr', 'RSVP', '...');
+wire('wl', 'ok', 'wlErr', 'Join', '...');
 wire('artistForm', 'artistOk', 'artistErr', 'Hit it', 'Sending...');
 
 route();
