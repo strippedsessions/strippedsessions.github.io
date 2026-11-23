@@ -207,6 +207,16 @@ main{padding:56px 32px 96px}
 .page[data-page="about"] a[href^="mailto"],.page[data-page="about"] a[href*="instagram"],.page[data-page="about"] a[href*="tiktok"],.page[data-page="about"] a[href*="youtube.com/@"],.foot a,.page[data-page="videos"] .lead a{display:inline-flex;align-items:center;min-height:44px;padding:0}
 .page[data-page="shop"] small{font-size:12px}
 }
+
+.next{align-items:start}
+.next .info{gap:14px}
+.next .redact{max-width:none}
+#rsvp .field-row{max-width:none}
+#rsvp button[type=submit]{max-width:none!important}
+#rsvp{margin-top:10px!important;padding:22px!important;gap:10px!important}
+#rsvp form{display:flex;flex-direction:column;gap:6px}
+.strip-head,.play-cta{width:min(1080px,100%);margin-left:auto;margin-right:auto}
+#rsvp input[type=text],#rsvp input[type=email]{min-height:48px}
 </style>
 </head>
 <body>
@@ -259,8 +269,9 @@ main{padding:56px 32px 96px}
         </div>
         <div class="field-row">
           <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email">
-          <button type="submit" style="background:#E8348C;color:#131110;border:0;border-bottom:4px solid #9e1f5e;border-radius:3px;min-height:48px;padding:0 22px;font-size:16px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap;box-shadow:0 2px 0 rgba(0,0,0,0.35);" onmousedown="this.style.transform='translateY(2px)';this.style.borderBottomWidth='2px'" onmouseup="this.style.transform='';this.style.borderBottomWidth='4px'" onmouseleave="this.style.transform='';this.style.borderBottomWidth='4px'">Hold my spot</button>
+          
         </div>
+      <button type="submit" style="display:block;width:100%;max-width:420px;margin:16px 0 0;background:#E8348C;color:#131110;border:0;border-bottom:4px solid #9e1f5e;border-radius:3px;min-height:52px;padding:0 22px;font-size:16px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;" onmousedown="this.style.transform='translateY(2px)';this.style.borderBottomWidth='2px'" onmouseup="this.style.transform='';this.style.borderBottomWidth='4px'" onmouseleave="this.style.transform='';this.style.borderBottomWidth='4px'">Hold my spot</button>
       </form>
       <span class="small">50 RON minimum at the door, for the musician.</span>
 <p class="msg" id="ok">You're on the list for Pop-up 01. Friday, December 18, doors at 18:00, Ototo Station. We'll check in with an email before the pop-up.</p>
