@@ -235,7 +235,7 @@ main{padding:56px 32px 96px}
     <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
     <div class="haze"></div>
     <div class="rec"><span class="dot"></span><span>REC</span></div>
-    <div class="stamp">SESSION 03&nbsp;&nbsp;TBA</div>
+    <div class="stamp">POP-UP 01&nbsp;&nbsp;DEC 18</div>
     <svg class="neon-icon" id="neonIcon" viewBox="0 0 200 134" fill="none" aria-hidden="true"><rect x="3" y="3" width="194" height="128" rx="8" stroke="#ffe8f2" stroke-width="5"/><circle cx="62" cy="46" r="26" stroke="#ffe8f2" stroke-width="4.5"/><circle cx="62" cy="46" r="8" fill="#ffe8f2"/><circle cx="138" cy="46" r="26" stroke="#ffe8f2" stroke-width="4.5"/><circle cx="138" cy="46" r="8" fill="#ffe8f2"/><rect x="22" y="76" width="156" height="14" stroke="#ffe8f2" stroke-width="3.5"/><circle cx="72" cy="118" r="4" fill="#ffe8f2"/><circle cx="128" cy="118" r="4" fill="#ffe8f2"/></svg>
     <h1 class="neon" id="neonName">Stripped<br>Sessions</h1>
     <p class="tagline">the song you want to hear for the first time again and again</p>
@@ -243,22 +243,30 @@ main{padding:56px 32px 96px}
   </div>
 
   <div class="next">
-        <div class="info">
-      <span class="eyebrow">Next session</span>
-      <span class="big">TBA</span>
-      <div class="meta"><span>Session 03 · The Heavy Yard Sessions</span><span>Heavy Yard · Vasile Lascăr 38 · Date to be announced</span></div>
+    <img src="photos/popup01-poster.png" alt="Pop-up 01 poster">
+    <div class="info">
+      <span class="eyebrow">Next · Pop-up 01</span>
+      <span class="big">Dec 18</span>
+      <div class="meta"><span>Friday · Doors 18:00 · Start 19:00</span><span>Ototo Station · Sfinții Voievozi 20-24</span><span style="opacity:.75;">One musician, one hour, stripped down.</span></div>
       <span style="font-size:13px;padding-top:8px;">Lineup</span>
-      <div class="redact" aria-label="Lineup not announced"><span class="rbar"></span><span style="font-size:14px;">&amp;</span><span class="rbar"></span></div>
-      <span id="rsvp" style="font-size:14px;padding-top:14px;">Limited seats. RSVP to hold your spot.</span>
-      <form id="wl" action="https://formspree.io/f/xqejvaed" method="POST">
+      <div class="redact" aria-label="Lineup not announced"><span class="rbar"></span></div>
+      <div id="rsvp" style="margin-top:18px;padding:18px 18px 20px;border:2px solid #E8348C;display:flex;flex-direction:column;gap:6px;"><span style="font-size:clamp(22px,3vw,28px);line-height:1.15;color:#E8348C;text-transform:uppercase;letter-spacing:0.04em;">RSVP for Pop-up 01</span><span style="font-size:15px;">Limited seats. RSVP to hold your spot.</span>
+<form id="wl" action="https://formspree.io/f/xqejvaed" method="POST">
+        <input type="hidden" name="event" value="Pop-up 01 · Ototo Station · December 18">
+        <input type="hidden" name="_subject" value="RSVP · Pop-up 01 · December 18">
+        <div class="field-row" style="margin-bottom:10px;">
+          <input type="text" name="name" placeholder="Your name (for the door list)" required autocomplete="name" aria-label="Name">
+        </div>
         <div class="field-row">
           <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email">
-          <button type="submit">RSVP</button>
+          <button type="submit" style="background:#E8348C;color:#131110;border:0;border-bottom:4px solid #9e1f5e;border-radius:3px;min-height:48px;padding:0 22px;font-size:16px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap;box-shadow:0 2px 0 rgba(0,0,0,0.35);" onmousedown="this.style.transform='translateY(2px)';this.style.borderBottomWidth='2px'" onmouseup="this.style.transform='';this.style.borderBottomWidth='4px'" onmouseleave="this.style.transform='';this.style.borderBottomWidth='4px'">Hold my spot</button>
         </div>
       </form>
-      <span class="small">50 RON minimum at the door, for the musicians.</span>
-      <p class="msg" id="ok">You're on the list for Session 03. We'll email you the date.</p>
-      <p class="msg" id="wlErr">That didn't go through. Try again?</p>
+      <span class="small">50 RON minimum at the door, for the musician.</span>
+<p class="msg" id="ok">You're on the list for Pop-up 01. Friday, December 18, doors at 18:00, Ototo Station. We'll check in with an email before the pop-up.</p>
+      <p class="msg" id="wlErr">That didn't go through. Try again?</p></div>
+      
+      
     </div>
   </div>
 
@@ -293,6 +301,14 @@ main{padding:56px 32px 96px}
 <section class="page" data-page="sessions">
 <main>
   <div class="s-top">
+    <h2 class="h2">Pop-up 01</h2>
+    <div class="r"><span>Lineup undisclosed</span><span style="opacity:.7;">Ototo Station, December 18</span></div>
+  </div>
+  <div class="poster-row">
+    <img src="photos/popup01-poster.png" alt="Pop-up 01 poster" style="width:100%;display:block;">
+    <span style="font-size:12px;opacity:.7;">The poster</span>
+  </div>
+  <div class="s-top" style="margin-top:56px;">
     <h2 class="h2">Session 02</h2>
     <div class="r"><span>Jenifer Mohebbi &amp; Raul Marița</span><span style="opacity:.7;">Heavy Yard, November 1</span></div>
   </div>
@@ -329,8 +345,6 @@ main{padding:56px 32px 96px}
 
     <a href="https://instagram.com/stripped.sessions" target="_blank" rel="noreferrer"><img src="photos/s01-duo-a.jpg" alt="" loading="lazy" decoding="async"><small>01</small><span>Adame Wolf, I</span></a>
     <a href="https://instagram.com/stripped.sessions" target="_blank" rel="noreferrer"><img src="photos/s01-duo-c.jpg" alt="" loading="lazy" decoding="async"><small>02</small><span>Adame Wolf, II</span></a>
-    <a href="https://instagram.com/stripped.sessions" target="_blank" rel="noreferrer"><img src="photos/s01-trio-b.jpg" alt="" loading="lazy" decoding="async"><small>03</small><span>Krrysopher, I</span></a>
-    <a href="https://instagram.com/stripped.sessions" target="_blank" rel="noreferrer"><img src="photos/s01-trio-c.jpg" alt="" loading="lazy" decoding="async"><small>04</small><span>Krrysopher, II</span></a>
   </div>
 </main>
 </section>
@@ -430,7 +444,7 @@ main{padding:56px 32px 96px}
 </section>
 
 <div class="bar">
-  <div class="cd"><span class="dot blink"></span><span id="countdown">Session 03 · TBA</span></div>
+  <div class="cd"><span class="dot blink"></span><span id="countdown">Pop-up 01 · Dec 18</span></div>
   <a class="key" href="#rsvp" id="rsvpKey">RSVP</a>
 </div>
 
@@ -496,7 +510,7 @@ function wire(formId, okId, errId, label, busy){
       .catch(function(){ btn.textContent = label; btn.disabled = false; err.style.display = 'block'; });
   });
 }
-wire('wl', 'ok', 'wlErr', 'Join', '...');
+wire('wl', 'ok', 'wlErr', 'Hold my spot', '...');
 wire('artistForm', 'artistOk', 'artistErr', 'Hit it', 'Sending...');
 
 route();
