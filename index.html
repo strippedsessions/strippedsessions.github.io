@@ -196,14 +196,15 @@ main{padding:56px 32px 96px}
 .yt-wide{max-width:880px}
 .yt-frame{position:relative;z-index:61;display:block;width:100%;aspect-ratio:16/9;padding:0;border:1px solid rgba(232,226,216,.18);background:#0b0a09;cursor:pointer;overflow:hidden;color:var(--cream)}
 .yt-v .yt-frame{aspect-ratio:9/16}
-.yt-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.25) contrast(1.05);opacity:.85;transition:opacity .2s}
-.yt-frame:hover img{opacity:1}
-.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:none}
 .yt-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;border:1.5px solid var(--cream);background:rgba(19,17,16,.55);display:flex;align-items:center;justify-content:center;padding-left:3px;transition:border-color .2s,color .2s,box-shadow .2s}
 .yt-frame:hover .yt-play,.yt-frame:focus-visible .yt-play{border-color:var(--neon);color:var(--neon);box-shadow:0 0 14px rgba(232,52,140,.55)}
 .yt figcaption{display:flex;flex-direction:column;gap:4px;font-size:18px}
 .yt figcaption small{font-size:12px;opacity:.6;letter-spacing:.12em;text-transform:uppercase}
 @media (max-width:640px){
+.tapes{grid-template-columns:minmax(0,1fr)!important}
 .page[data-page="about"] a[href^="mailto"],.page[data-page="about"] a[href*="instagram"],.page[data-page="about"] a[href*="tiktok"],.page[data-page="about"] a[href*="youtube.com/@"],.foot a,.page[data-page="videos"] .lead a{display:inline-flex;align-items:center;min-height:44px;padding:0}
 .page[data-page="shop"] small{font-size:12px}
 }
@@ -351,11 +352,17 @@ main{padding:56px 32px 96px}
       <figcaption><small>01</small><span>Behind the scenes</span></figcaption>
     </figure>
   </div>
-  <p class="lead" style="margin-top:48px">The session tapes. Watch them on <a href="https://instagram.com/stripped.sessions" target="_blank" rel="noreferrer">@stripped.sessions</a> soon.</p>
-  <div class="vgrid">
-
-    <a href="https://instagram.com/stripped.sessions" target="_blank" rel="noreferrer"><img src="photos/s01-duo-a.jpg" alt="" loading="lazy" decoding="async"><small>01</small><span>Adame Wolf, I</span></a>
-    <a href="https://instagram.com/stripped.sessions" target="_blank" rel="noreferrer"><img src="photos/s01-duo-c.jpg" alt="" loading="lazy" decoding="async"><small>02</small><span>Adame Wolf, II</span></a>
+  <h3 class="h2" style="margin-top:56px;font-size:clamp(20px,2.4vw,26px);">The session tapes</h3>
+  <p class="lead">Session 01, one take each.</p>
+  <div class="tapes" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:880px;">
+    <figure class="yt">
+      <button type="button" class="yt-frame" data-yt="zz8PKzCaGLU" aria-label="Play Yoused, Adame Wolf"><img src="https://i.ytimg.com/vi/zz8PKzCaGLU/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+      <figcaption><small>01 · Adame Wolf</small><span>Yoused</span></figcaption>
+    </figure>
+    <figure class="yt">
+      <button type="button" class="yt-frame" data-yt="_n41cLrmt74" aria-label="Play Girl Like This, Adame Wolf"><img src="https://i.ytimg.com/vi/_n41cLrmt74/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+      <figcaption><small>02 · Adame Wolf</small><span>Girl Like This</span></figcaption>
+    </figure>
   </div>
 </main>
 </section>
